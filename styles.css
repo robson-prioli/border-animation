@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+:root{
+    --color: #fff;
+    --blur: 20px;
+    --gradient: #ff0000;
+    --gradient-line: 10%;
+    --gradient-size: 3px;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    color-scheme: dark;
+}
+
+body{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    min-width: 100%;
+    position: relative;
+    font-family: Poppins;
+}
+
+/* div.card */
+.card{
+    margin: 0 auto;
+    padding: 2em;
+    width: 300px;
+    background-color: #1c1f2b;
+    text-align: center;
+    border-radius: 12px;
+    position: relative;
+    --angle: 0;
+
+    &::after, &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        background: conic-gradient(from var(--angle), transparent var(--gradient-line), var(--gradient));
+        z-index: -1;
+        padding: var(--gradient-size);
+        border-radius: 12px;
+        animation: spin 1.5s linear infinite;
+    }
+
+    &::before{
+        filter: blur(var(--blur)); 
+        opacity: 0.5;
+    }
+
+    & h1{ margin: 0 0 16px 0; }
+    & p{ text-align: left; }
+}
+
+
+/* div.settings */
+.settings{
+    width: min(300px, 30%);
+    height: 100vh;
+    max-height: 100%;
+    right: 0;
+    padding: 16px;
+    position: absolute;
+    background-color: #1c1f2b;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    & h1{
+        font-size: 1em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    & hr{
+        margin: 16px 0;
+    }
+
+    & .colors{
+        display: flex;
+        flex-direction: column;
+
+        & input{
+            width: 100%;
+            margin: 0 0 8px 0;
+        }
+    }
+
+    & .result{
+        margin: 16px 0 0 0;
+
+        & textarea{
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            resize: none;
+        }
+    }
+
+    & .actions{
+        margin: 16px 0 0 0;
+
+        & .action-item{
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 8px 0;
+
+            & button, input{
+                flex: 1;
+                width: 100%;
+                padding: 8px 0;
+            }
+        }
+    }
+
+}
+
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+
+    to{
+        --angle:360deg;
+    }
+}

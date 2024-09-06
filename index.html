@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Animation</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    
+    <div class="card">
+        <h1>Lorem ipsum</h1>
+        <p>Possimus quaerat qui optio porro temporibus iure eius, magni natus provident inventore animi dicta assumenda excepturi voluptatibus consequuntur aliquam in nisi atque.</p>
+    </div>
+
+    <div class="settings">
+        <h1>Border Animation</h1>
+        <hr> 
+
+        <div class="colors">
+            <input class="color" type="color" name="color" value="#ff0000" />
+        </div>
+
+        <div class="result">
+            <textarea class="gradient-final"></textarea>
+        </div>
+
+        <div class="actions">
+            <div class="action-item">
+                <label for="">Line</label>
+                <input class="gradient-line" type="range" name="" min="0" max="100" value="10" /> 
+            </div>
+            <div class="action-item">
+                <label for="">Thickness</label>
+                <input class="gradient-size" type="range" name="" min="0" max="10" value="2" step="0.5" /> 
+            </div>
+            <div class="action-item">
+                <label for="">Blur</label>
+                <input class="gradient-blur" type="range" name="" min="0" max="200" value="20" /> 
+            </div>
+            <div class="action-item">
+                <button class="btn-add">add</button>
+            </div>
+            <div class="action-item">
+                <button class="btn-set">set</button>
+            </div>
+            <div class="action-item">
+                <button class="btn-random">random</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
